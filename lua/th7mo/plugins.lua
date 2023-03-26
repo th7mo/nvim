@@ -33,11 +33,22 @@ end
 return packer.startup(function(use)
     -- My plugins here
     use "wbthomason/packer.nvim"                -- Have packer manage itself
-    use { "ellisonleao/gruvbox.nvim" }          -- Color scheme    
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if PACKER_BOOTSTRAP then
-        require("packer").sync()
-    end
+    use "ellisonleao/gruvbox.nvim"              -- Color scheme    
+
+    -- Autocomplete plugins
+    use "hrsh7th/nvim-cmp"                      -- The completion plugin
+    use "hrsh7th/cmp-buffer"                    -- buffer completions
+    use "hrsh7th/cmp-path"                      -- path completions
+    use "hrsh7th/cmp-cmdline"                   -- cmdline completions
+    use "hrsh7th/cmp-nvim-lsp"
+
+    -- Snippets
+    use "L3MON4D3/LuaSnip"                      -- snippet engine
+
+    -- LSP
+    use "neovim/nvim-lspconfig"                 -- enable LSP
+    use { "williamboman/mason.nvim", run = ":MasonUpdate" }
+    
 end)
+
 
