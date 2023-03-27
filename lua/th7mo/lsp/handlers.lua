@@ -1,27 +1,27 @@
 local M = {}
 
 M.setup = function()
-    local config = {
-        virtual_text = false
+    local signs = {
+        { name = "DiagnosticSignError", text = "e" },
+        { name = "DiagnosticSignWarn", text = "w" },
+        { name = "DiagnosticSignHint", text = "h" },
+        { name = "DiagnosticSignInfo", text = "i" },
     }
-end
 
-local function lsp_highlight_document(client)
-    if client.resolved_capabilities.document_highlight then
-        vim.api.nvim_exec(
-            [[
-            augroup lsp_document_highlight
-                autocmd! * <buffer>
-                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-                autocmd CursorMoved <buffer> lua.vim.lsp.buf.clear_references()
-            augroup END
-            ]], false
-        )
+    for _, sign in ipairs(signs) do
+        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
     end
+
+    local config = {
+        virtual_text = true,
+        signs = { active = signs },
+        severity_sort = true,
+    }
+
+    vim.diagnostic.config(config)
 end
 
 M.on_attach = function(client, bufnr)
-    lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

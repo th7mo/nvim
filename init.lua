@@ -4,4 +4,5 @@ require "th7mo.plugins"
 require "th7mo.colorscheme"
 require "th7mo.cmp"
 require "th7mo.lsp"
+require "th7mo.treesitter"
 

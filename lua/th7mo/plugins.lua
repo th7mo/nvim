@@ -34,6 +34,7 @@ return packer.startup(function(use)
     -- My plugins here
     use "wbthomason/packer.nvim"                -- Have packer manage itself
     use "ellisonleao/gruvbox.nvim"              -- Color scheme    
+    use "nvim-lua/plenary.nvim"                 -- Dependency for a lot of plugins (telescope)
 
     -- Autocomplete plugins
     use "hrsh7th/nvim-cmp"                      -- The completion plugin
@@ -48,6 +49,13 @@ return packer.startup(function(use)
     -- LSP
     use "neovim/nvim-lspconfig"                 -- enable LSP
     use { "williamboman/mason.nvim", run = ":MasonUpdate" }
+    use "williamboman/mason-lspconfig.nvim"
+
+    -- Telescope
+    use "nvim-telescope/telescope.nvim"
+
+    -- Highlighting
+    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
     
 end)
 
