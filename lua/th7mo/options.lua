@@ -1,9 +1,32 @@
-vim.opt.number = true						-- show linenumbers in left gutter
-vim.opt.updatetime = 50 					-- faster completion (4000ms default)
-vim.opt.expandtab = true					-- convert tabs (--->) to spaces (....)
-vim.opt.shiftwidth = 4						-- the number of spaces inserted for each indentation
-vim.opt.tabstop = 4 						-- insert 4 spaces (....) for a tab (--->)
-vim.opt.termguicolors = true                -- enable more colors inside the terminal (most terminals support this)
-vim.opt.swapfile = false                    -- No backup for not saving files
-vim.opt.backup = false                      -- No backup
+local opt = vim.opt
+
+-- line numbers
+opt.number = true
+opt.relativenumber = true
+
+-- tabs & indentation
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.autoindent = true
+
+-- line wrapping
+opt.wrap = false
+
+-- search settings
+opt.ignorecase = true
+opt.smartcase = true
+
+-- appearance
+opt.termguicolors = true
+opt.background = "dark"
+opt.signcolumn = "yes"
+
+-- backspace
+opt.backspace = "indent,eol,start"
+
+-- split windows
+opt.splitright = true
+opt.splitbelow = true
+opt.iskeyword:append("-")
 
