@@ -37,3 +37,5 @@ keymap.set("n", "<leader>tp", "<cmd>tabp<cr>")
 -- nvim-tree
 keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
+-- terminal
+keymap.set("n", "<leader>t", "<cmd>terminal<cr>")

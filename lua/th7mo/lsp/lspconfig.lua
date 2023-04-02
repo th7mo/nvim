@@ -69,6 +69,7 @@ local servers = {
 	"volar",
 	"marksman",
 	"vimls",
+	"vls",
 }
 
 for _, lsp in pairs(servers) do
